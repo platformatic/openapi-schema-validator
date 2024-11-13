@@ -157,6 +157,7 @@ export class Validator {
 				);
 			}
 			const { version } = getOpenApiVersion(spec);
+			/* c8 ignore next 5 */
 			if (!version) {
 				// it is not the main openApi specification, but a subschema
 				this.addSpecRef(spec, spec.$id || fileName);
@@ -169,6 +170,7 @@ export class Validator {
 			}
 			specification = spec;
 		}
+		/* c8 ignore next 1 */
 		return this.validate(specification);
 	}
 

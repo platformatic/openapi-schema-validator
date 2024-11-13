@@ -49,48 +49,6 @@ This module can be used in CommonJS code via:
 const { Validator } = await (import("@platformatic/openapi-schema-validator"));
 ```
 
-See also the [upgrading guide](UPGRADING.md) if you come from a previous major version.
-
-<a name="CLI"></a>
-
-### CLI for API validation
-
-Run with global install:
-
-```bash
-npm install @platformatic/openapi-schema-validator -g
-validate-api <filename>
-```
-
-Run without install:
-
-```bash
-npx -p @platformatic/openapi-schema-validator validate-api <filename>
-```
-
-Where `<filename>` refers to a YAML or JSON file containing the specification.
-
-### CLI for API bundling
-
-To make it easier to combine multiple YAML or JSON files into a single specification file there is the `bundle-api` command.
-(see the [validateBundle](#validateBundle) section below) 
-
-```bash
-npm install @platformatic/openapi-schema-validator -g
-bundle-api <specFiles> 
-```
-
-Run without install:
-
-```bash
-npx -p @platformatic/openapi-schema-validator bundle-api <spec files> 
-```
-
-The output will be a validated JSON specification.
-Options:
-  -o  --output <filename>   the filename to save the output to, default is STDOUT.
-  -t  --type  [JSON|YAML]   the output format, default is JSON.
-
 <a name="API"></a>
 
 ## API
@@ -275,7 +233,9 @@ This static property returns the OpenApi versions supported by this package as a
 
 # Credits
 
-This module was forked at [commit](https://github.com/seriousme/openapi-schema-validator/commit/e4f417ade9e675225381fb872e1b78a9fa392472).
+This module was forked from
+[https://github.com/seriousme/openapi-schema-validator](https://github.com/seriousme/openapi-schema-validator)
+at [commit](https://github.com/seriousme/openapi-schema-validator/commit/e4f417ade9e675225381fb872e1b78a9fa392472).
 We thank Hans Klunder for his original work on this module.
 
 # License

@@ -1,13 +1,9 @@
 {
-	"name": "@seriousme/openapi-schema-validator",
+	"name": "@platformatic/openapi-schema-validator",
 	"version": "2.2.4",
 	"description": "Validate OpenApi specifications against their JSON schema",
 	"main": "index.js",
 	"type": "module",
-	"bin": {
-		"validate-api": "./bin/validate-api-cli.js",
-		"bundle-api": "./bin/bundle-api-cli.js"
-	},
 	"dependencies": {
 		"ajv": "^8.17.1",
 		"ajv-draft-04": "^1.0.0",
@@ -35,7 +31,7 @@
 		"realWorldTestFailed": "node test/realworld/realworld.js --failedOnly",
 		"realWorldTestCI": "node test/realworld/realworld.js --ci"
 	},
-	"author": "Hans Klunder",
+  "author": "Platformatic Inc. <oss@platformatic.dev> (https://platformatic.dev)",
 	"license": "MIT",
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
@@ -46,7 +42,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/seriousme/openapi-schema-validator.git"
+		"url": "git+https://github.com/platformatic/openapi-schema-validator.git"
 	},
 	"keywords": [
 		"openapi",
@@ -55,7 +51,7 @@
 		"validation"
 	],
 	"bugs": {
-		"url": "https://github.com/seriousme/openapi-schema-validator/issues"
+		"url": "https://github.com/platformatic/openapi-schema-validator/issues"
 	},
-	"homepage": "https://github.com/seriousme/openapi-schema-validator#readme"
+	"homepage": "https://github.com/platformatic/openapi-schema-validator#readme"
 }

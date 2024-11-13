@@ -10,10 +10,11 @@ permissions: {}
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [ 'lts/-1', 'lts/*', 'node']
+        node-version: [ '20.x', '22.x' ]
+        os: ['ubuntu-latest', 'windows-latest']
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
