@@ -1,11 +1,5 @@
 # OpenAPI schema validator
 
-[![CI status](https://github.com/seriousme/openapi-schema-validator/workflows/Node.js%20CI/badge.svg)](https://github.com/seriousme/openapi-schema-validator/actions?query=workflow%3A%22Node.js+CI%22)
-[![Coverage Status](https://coveralls.io/repos/github/seriousme/openapi-schema-validator/badge.svg?branch=master)](https://coveralls.io/github/seriousme/openapi-schema-validator?branch=master)
-[![NPM version](https://img.shields.io/npm/v/@seriousme/openapi-schema-validator.svg)](https://www.npmjs.com/package/@seriousme/openapi-schema-validator)
-![npm](https://img.shields.io/npm/dm/@seriousme/openapi-schema-validator)
-[![Tested on APIs.guru](https://api.apis.guru/badges/tested_on.svg)](https://apis.guru/browse-apis/)
-
 A JSON schema validator for [OpenAPI](https://www.openapis.org/) specifications,
 it currently supports:
 
@@ -13,15 +7,12 @@ it currently supports:
 - [3.0.x](https://spec.openapis.org/oas/v3.0.3)
 - [3.1.x](https://spec.openapis.org/oas/v3.1.0)
 
-Tested on [over 2,000 real-world APIs](https://apis.guru/browse-apis/) from AWS,
-Microsoft, Google etc.
-
 <a name="install"></a>
 
 ## Install
 
 ```bash
-npm install @seriousme/openapi-schema-validator
+npm install @platformatic/openapi-schema-validator
 ```
 
 <a name="Usage"></a>
@@ -32,7 +23,7 @@ This module is ESM only, if you need to use commonJS please see below.
 
 ```javascript
 // ESM
-import { Validator } from "@seriousme/openapi-schema-validator";
+import { Validator } from "@platformatic/openapi-schema-validator";
 
 console.log(Validator.supportedVersions.has("3.1"));
 // prints true
@@ -55,7 +46,7 @@ This module can be used in CommonJS code via:
 
 ```javascript
 // CommonJS
-const { Validator } = await (import("@seriousme/openapi-schema-validator"));
+const { Validator } = await (import("@platformatic/openapi-schema-validator"));
 ```
 
 See also the [upgrading guide](UPGRADING.md) if you come from a previous major version.
@@ -67,14 +58,14 @@ See also the [upgrading guide](UPGRADING.md) if you come from a previous major v
 Run with global install:
 
 ```bash
-npm install @seriousme/openapi-schema-validator -g
+npm install @platformatic/openapi-schema-validator -g
 validate-api <filename>
 ```
 
 Run without install:
 
 ```bash
-npx -p @seriousme/openapi-schema-validator validate-api <filename>
+npx -p @platformatic/openapi-schema-validator validate-api <filename>
 ```
 
 Where `<filename>` refers to a YAML or JSON file containing the specification.
@@ -85,14 +76,14 @@ To make it easier to combine multiple YAML or JSON files into a single specifica
 (see the [validateBundle](#validateBundle) section below) 
 
 ```bash
-npm install @seriousme/openapi-schema-validator -g
+npm install @platformatic/openapi-schema-validator -g
 bundle-api <specFiles> 
 ```
 
 Run without install:
 
 ```bash
-npx -p @seriousme/openapi-schema-validator bundle-api <spec files> 
+npx -p @platformatic/openapi-schema-validator bundle-api <spec files> 
 ```
 
 The output will be a validated JSON specification.
@@ -237,7 +228,7 @@ components:
 Then the validation can be performed as follows:
 
 ```javascript
-import { Validator } from "@seriousme/openapi-schema-validator";
+import { Validator } from "@platformatic/openapi-schema-validator";
 const validator = new Validator();
 await validator.addSpecRef("./sub-spec.yaml", "http://www.example.com/subspec");
 const res = await validator.validate("./main-spec.yaml");
@@ -264,7 +255,7 @@ There can only be one main specification present (starting with swagger/openapi)
 If we take the YAML specifications from the previous example then validation can be performed as follows:
 
 ```javascript
-import { Validator } from "@seriousme/openapi-schema-validator";
+import { Validator } from "@platformatic/openapi-schema-validator";
 const validator = new Validator();
 const res = await validator.validateBundle([ "./sub-spec.yaml", "./main-spec.yaml"]);
 // res now contains the results of the validation across main-spec and sub-spec
@@ -281,6 +272,11 @@ This static property returns the OpenApi versions supported by this package as a
 `Set`. If present, the result of `<instance>.version` is a member of this `Set`.
 
 <a name="license"></a>
+
+# Credits
+
+This module was forked at [commit](https://github.com/seriousme/openapi-schema-validator/commit/e4f417ade9e675225381fb872e1b78a9fa392472).
+We thank Hans Klunder for his original work on this module.
 
 # License
 
