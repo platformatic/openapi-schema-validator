@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
+import { fileURLToPath } from 'node:url'
 import Ajv04 from 'ajv-draft-04'
 import addFormats from 'ajv-formats'
 import Ajv2020 from 'ajv/dist/2020.js'
@@ -14,7 +15,7 @@ const ajvVersions = {
 const inlinedRefs = 'x-inlined-refs'
 
 function localFile (file) {
-  return new URL(file, import.meta.url).pathname
+  return fileURLToPath(new URL(file, import.meta.url))
 }
 
 function importJSON (file) {

@@ -1,11 +1,12 @@
 import { strict as assert } from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { readFile } from 'node:fs/promises'
 import { test } from 'node:test'
 import { Validator } from '../index.js'
 
-function localFile (file) {
-  return new URL(file, import.meta.url).pathname
+function localFile (path) {
+  return fileURLToPath(new URL(path, import.meta.url))
 }
 
 function importJSON (file) {

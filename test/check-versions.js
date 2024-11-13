@@ -1,6 +1,7 @@
 import { strict as assert } from 'node:assert/strict'
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { readdir } from 'node:fs/promises'
 import { test } from 'node:test'
 import { Validator } from '../index.js'
@@ -8,8 +9,8 @@ import { Snapshot } from './snapshot.js'
 
 const supportedVersions = Validator.supportedVersions
 
-function localPath (path) {
-  return new URL(path, import.meta.url).pathname
+function localPath (fileName) {
+  return fileURLToPath(new URL(fileName, import.meta.url))
 }
 
 const snapShotFile = localPath('snapshots-check-versions.json')
