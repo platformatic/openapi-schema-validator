@@ -35,7 +35,7 @@ jobs:
     - name: Start the test
       run: npm run realWorldTestCI
     - name: Run format to avoid validation errors on next CI
-      run: npm run format
+      run: npx eslint --fix
     - name: Push changes to remote
       run: |
         git add test/realworld/failed*
